@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出校</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style-type: 0px;
+        }
+        .container{
+            width: 400px;
+            height: 400px;
+            border: 1px solid transparent;
+            margin: 0 auto;
+            position: relative;
+        }
+        h5{
+            text-align: center;
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: 400;
+        
+        }
+        img{
+            width: 100px;
+            height: auto;
+            border: 1px solid transparent;
+            position: absolute;
+            top:70px;
+            left: 150px;
+            z-index:-1; 
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+        .box{
+            margin-top: 142px;
+            margin-bottom: 15px;
+        }
+        p{
+            text-align: center;
+            margin-left: 5px;
+            font-size: 12px;
+            
+        }
+        hr{
+            width: 100%;
+           
+
+        }
+        h4{
+            text-align: center;
+            font-size: 22px;
+            font-weight: 400;
+        }
+        p{
+            font-weight: 400;
+        }
+        .box2 img{
+            width: 60px;
+            height: auto;
+            position: relative;
+            top:5px;
+            left: 170px;
+            border: 0;
+        }
+    </style>
+</head>
+<body onload="startTime()">
+    <div class="container">
+          <h5>出校</h5>
+          <img src="https://foruda.gitee.com/images/1664420489470844373/fd5c93b4_9117561.jpeg "  alt="">
+          <div class="box">
+             <p id ="demo" style = "color: black;"></p>
+             <hr>
+          </div>
+          <h4 style="color: black;">学生:白名单验证通过，该<br>申请离校扫码1次，离校<br>码只能使用一层，请不要<br>重复打开</h4>
+          <p id="nowDateTimeSpan" style="color:rgba(236, 51,48); font-size: 20px;margin-top: 6px;"></p>
+          <div class="box2">
+             <img src="https://ttext1.github.io/cychumen/img/yy.jpg">
+          </div>
+    </div>
+
+</body>
+<script>
+    function startTime()
+
+{
+
+    var today=new Date();//定义日期对象
+
+    var yyyy = today.getFullYear();//通过日期对象的getFullYear()方法返回年
+
+    var MM = today.getMonth()+1;//通过日期对象的getMonth()方法返回年
+
+    var dd = today.getDate();//通过日期对象的getDate()方法返回年
+
+    var hh=today.getHours();//通过日期对象的getHours方法返回小时
+
+    var mm=today.getMinutes();//通过日期对象的getMinutes方法返回分钟
+
+    var ss=today.getSeconds();//通过日期对象的getSeconds方法返回秒
+
+    var vv=today.getMilliseconds()
+
+    // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09
+
+    MM=checkTime(MM);
+
+    dd=checkTime(dd);
+
+    mm=checkTime(mm);
+
+    ss=checkTime(ss);
+    // document.getElementById('nowDateTime').innerHTML=MM+"-"+dd
+    document.getElementById('nowDateTimeSpan').innerHTML=hh+":"+mm+":"+ss+"."+vv;
+
+    setTimeout('startTime()',3);//每一秒中重新加载startTime()方法
+
+}
+
+
+
+function checkTime(i)
+
+{
+
+    if (i<10){
+
+        i="0" + i;
+
+    }
+
+      return i;
+
+}
+var name = prompt("请输入你的名字","名字");
+		var mm = prompt("请输入你的学号","学号");
+		if(name!='aaaa'){
+			x=document.getElementById("demo");  //查找元素
+			var a=name+'-'+mm+""
+			x.innerHTML=a;    //改变内容
+		}
+</script>
+</html>
